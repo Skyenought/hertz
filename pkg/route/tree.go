@@ -55,9 +55,8 @@ import (
 )
 
 type router struct {
-	method        string
-	root          *node
-	hasTsrHandler map[string]bool
+	method string
+	root   *node
 }
 
 type MethodTrees []*router
@@ -318,7 +317,6 @@ func (r *router) find(path string, paramsPointer *param.Params, unescape bool) (
 		cn          = r.root // current node
 		search      = path   // current path
 		searchIndex = 0
-		buf         []byte
 		paramIndex  int
 	)
 
@@ -441,7 +439,7 @@ func (r *router) find(path string, paramsPointer *param.Params, unescape bool) (
 				}
 			}
 
-			(*paramsPointer)[index].Value = bytesconv.B2s(append(buf, val...))
+			(*paramsPointer)[index].Value = val
 			// update indexes/search in case we need to backtrack when no handler match is found
 			paramIndex++
 			searchIndex += len(search)
