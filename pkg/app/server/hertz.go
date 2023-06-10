@@ -110,7 +110,7 @@ func waitSignal(errCh chan error) error {
 			// force exit
 			return errors.NewPublic(sig.String()) // nolint
 		case syscall.SIGHUP, syscall.SIGINT:
-			hlog.SystemLogger().Infof("Received signal: %s\n", sig)
+			hlog.SystemLogger().Infof("Received signal: %s", sig)
 			// graceful shutdown
 			return nil
 		}
