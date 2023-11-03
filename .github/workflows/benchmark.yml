@@ -2,7 +2,6 @@ on:
   push:
     branches:
       - develop
-      - benchmark
     paths:
       - '**'
       - "!**.md"
@@ -33,7 +32,7 @@ jobs:
         with:
           tool: 'go'
           output-file-path: output.txt
-          github-token: ${{ secrets.ACCESS_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           benchmark-data-dir-path: 'benchmarks'
           fail-on-alert: true
           comment-on-alert: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
