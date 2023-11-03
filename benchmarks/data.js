@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1699012571744,
+  "lastUpdate": 1699013568779,
   "repoUrl": "https://github.com/Skyenought/hertz",
   "entries": {
     "Benchmark": [
@@ -312,6 +312,228 @@ window.BENCHMARK_DATA = {
             "value": 50.95,
             "unit": "ns/op\t      16 B/op\t       1 allocs/op",
             "extra": "23408064 times\n4 procs"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "skyenought@qq.com",
+            "name": "Jiun Lee",
+            "username": "Skyenought"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": true,
+          "id": "af4e9df927c0aa35320f0793eb421d181df7c0f1",
+          "message": "Merge pull request #2 from Skyenought/benchmark-detail\n\nadd bind route benchmarks",
+          "timestamp": "2023-11-03T20:10:53+08:00",
+          "tree_id": "3d77a69f53896da32223aa942ec890513a1f2b8b",
+          "url": "https://github.com/Skyenought/hertz/commit/af4e9df927c0aa35320f0793eb421d181df7c0f1"
+        },
+        "date": 1699013568324,
+        "tool": "go",
+        "benches": [
+          {
+            "name": "BenchmarkNewContext",
+            "value": 446.3,
+            "unit": "ns/op\t     192 B/op\t       2 allocs/op",
+            "extra": "2295450 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkCtxJSON",
+            "value": 566.7,
+            "unit": "ns/op\t     323 B/op\t       5 allocs/op",
+            "extra": "1981639 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkCtxBody",
+            "value": 2.822,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "421051153 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkCtxBodyWithCompression/gzip",
+            "value": 4.423,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "269884948 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkCtxBodyWithCompression/deflate",
+            "value": 4.441,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "270966596 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkBindJSON",
+            "value": 442.7,
+            "unit": "ns/op\t     206 B/op\t       5 allocs/op",
+            "extra": "2662286 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkBindQuery",
+            "value": 351.2,
+            "unit": "ns/op\t      20 B/op\t       2 allocs/op",
+            "extra": "3423007 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkBindForm",
+            "value": 178.2,
+            "unit": "ns/op\t       4 B/op\t       1 allocs/op",
+            "extra": "6726007 times\n2 procs"
+          },
+          {
+            "name": "Benchmark_Binding",
+            "value": 401.7,
+            "unit": "ns/op\t      80 B/op\t       4 allocs/op",
+            "extra": "2980968 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkFuncOverhead",
+            "value": 608.3,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "1822329 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkFuncPure",
+            "value": 22.29,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "51914702 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkHTTPHeaderGet",
+            "value": 99.94,
+            "unit": "ns/op\t      16 B/op\t       1 allocs/op",
+            "extra": "11829694 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkHertzHeaderGet",
+            "value": 32.74,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "36746450 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkHTTPHeaderSet",
+            "value": 155.6,
+            "unit": "ns/op\t      32 B/op\t       2 allocs/op",
+            "extra": "7530276 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkHertzHeaderSet",
+            "value": 40.51,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "29772984 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkHTTPHeaderAdd",
+            "value": 771.8,
+            "unit": "ns/op\t     194 B/op\t       4 allocs/op",
+            "extra": "1476632 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkHertzHeaderAdd",
+            "value": 803.6,
+            "unit": "ns/op\t     391 B/op\t       3 allocs/op",
+            "extra": "1825832 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkRefreshServerDate",
+            "value": 365.3,
+            "unit": "ns/op\t      56 B/op\t       2 allocs/op",
+            "extra": "3286876 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkURIParsePath",
+            "value": 72.14,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "17794960 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkURIParsePathQueryString",
+            "value": 109.8,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "15560005 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkURIParsePathQueryStringHash",
+            "value": 86.54,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "13873032 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkURIParseHostname",
+            "value": 107.7,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "11190690 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkURIFullURI",
+            "value": 23.54,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "52410596 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTree_FindStatic",
+            "value": 9101,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "131644 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTree_FindGithub",
+            "value": 13015,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "91488 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTree_FindStaticTsr",
+            "value": 13.28,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "90400539 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTree_FindParam",
+            "value": 52.64,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "22927920 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTree_FindParamTsr",
+            "value": 65.96,
+            "unit": "ns/op\t       0 B/op\t       0 allocs/op",
+            "extra": "18008854 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTree_FindAny",
+            "value": 47.98,
+            "unit": "ns/op\t       8 B/op\t       1 allocs/op",
+            "extra": "24742448 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkTree_FindAnyFallback",
+            "value": 77.77,
+            "unit": "ns/op\t      16 B/op\t       1 allocs/op",
+            "extra": "17686754 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkRouteStatic",
+            "value": 258.7,
+            "unit": "ns/op\t       8 B/op\t       1 allocs/op",
+            "extra": "4582312 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkRouteParam",
+            "value": 291,
+            "unit": "ns/op\t       8 B/op\t       1 allocs/op",
+            "extra": "4092788 times\n2 procs"
+          },
+          {
+            "name": "BenchmarkRouteAny",
+            "value": 329.8,
+            "unit": "ns/op\t      24 B/op\t       2 allocs/op",
+            "extra": "3641168 times\n2 procs"
           }
         ]
       }
