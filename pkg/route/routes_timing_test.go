@@ -619,7 +619,14 @@ func BenchmarkTree_FindAnyFallback(b *testing.B) {
 }
 
 func BenchmarkRouteStatic(b *testing.B) {
-	r := NewEngine(config.NewOptions(nil))
+	cfg := []config.Option{
+		{
+			func(o *config.Options) {
+				o.DisablePrintRoute = true
+			},
+		},
+	}
+	r := NewEngine(config.NewOptions(cfg))
 	r.GET("/hi/foo", func(c context.Context, ctx *app.RequestContext) {})
 	ctx := r.NewContext()
 	req := protocol.NewRequest("GET", "/hi/foo", nil)
@@ -632,11 +639,17 @@ func BenchmarkRouteStatic(b *testing.B) {
 }
 
 func BenchmarkRouteParam(b *testing.B) {
-	r := NewEngine(config.NewOptions(nil))
+	cfg := []config.Option{
+		{
+			func(o *config.Options) {
+				o.DisablePrintRoute = true
+			},
+		},
+	}
+	r := NewEngine(config.NewOptions(cfg))
 	r.GET("/hi/:user", func(c context.Context, ctx *app.RequestContext) {})
 	ctx := r.NewContext()
 	req := protocol.NewRequest("GET", "/hi/foo", nil)
-	req.CopyTo(&ctx.Request)
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		req.CopyTo(&ctx.Request)
@@ -646,7 +659,14 @@ func BenchmarkRouteParam(b *testing.B) {
 }
 
 func BenchmarkRouteAny(b *testing.B) {
-	r := NewEngine(config.NewOptions(nil))
+	cfg := []config.Option{
+		{
+			func(o *config.Options) {
+				o.DisablePrintRoute = true
+			},
+		},
+	}
+	r := NewEngine(config.NewOptions(cfg))
 	r.GET("/hi/*user", func(c context.Context, ctx *app.RequestContext) {})
 	ctx := r.NewContext()
 	req := protocol.NewRequest("GET", "/hi/foo/dy", nil)
