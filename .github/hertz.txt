@@ -1,0 +1,43 @@
+package main
+
+import (
+	"context"
+	"github.com/cloudwego/hertz/pkg/app"
+	"github.com/cloudwego/hertz/pkg/app/server"
+)
+
+const (
+	plaintext  = "/plaintext"
+	json       = "/json"
+	query      = "/query/:queryID"
+	messageStr = "Hello, World!"
+)
+
+type JSONMessage struct {
+	Message string `json:"message"`
+}
+
+func main() {
+	h := server.New(
+		server.WithHostPorts(":8080"),
+	)
+	h.GET(plaintext, hertzPlaintext)
+	h.GET(json, hertzJSON)
+	h.GET(query, hertzQuery)
+	h.Spin()
+}
+
+func hertzPlaintext(ctx context.Context, c *app.RequestContext) {
+	c.String(200, messageStr)
+}
+
+func hertzJSON(ctx context.Context, c *app.RequestContext) {
+	c.JSON(200, &JSONMessage{
+		Message: messageStr,
+	})
+}
+
+func hertzQuery(ctx context.Context, c *app.RequestContext) {
+	queryID := c.Query("queryID")
+	c.String(200, queryID)
+}

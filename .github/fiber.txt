@@ -1,0 +1,39 @@
+package main
+
+import (
+	"github.com/gofiber/fiber/v2"
+)
+
+const (
+	_plaintext  = "/plaintext"
+	_json       = "/json"
+	_query      = "/query/:queryID"
+	_messageStr = "Hello, World!"
+)
+
+type _JSONMessage struct {
+	Message string `json:"message"`
+}
+
+func main() {
+	app := fiber.New()
+	app.Get(_plaintext, fiberPlaintext)
+	app.Get(_json, fiberJSON)
+	app.Get(_query, fiberQuery)
+	app.Listen(":8080")
+}
+
+func fiberPlaintext(c *fiber.Ctx) error {
+	return c.SendString(_messageStr)
+}
+
+func fiberJSON(c *fiber.Ctx) error {
+	return c.JSON(&_JSONMessage{
+		Message: _messageStr,
+	})
+}
+
+func fiberQuery(c *fiber.Ctx) error {
+	queryID := c.Query("queryID")
+	return c.SendString(queryID)
+}
